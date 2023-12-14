@@ -1,0 +1,127 @@
+/* project fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 48px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.didot {
+    font-size: 20px;
+    font-family: 'Didot', serif;
+    font-style: italic;
+}
+
+/* Apply a background color and text styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container to center content */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styles */
+header {
+    background-color: #0e0e0e;
+    color: #fff;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.top-container {
+    margin: 0 auto;
+    height: 350px;
+}
+
+/* Section styles */
+section {
+    margin: 40px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #0e0e0e;
+    color: #919191;
+    height: 100px;
+    font-family: 'Lato';
+    font-size: 18px;
+}
+
+.title {
+    padding-top: 40px;
+    text-align: center;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Updated to create 3 columns */
+    grid-template-rows: repeat(2, auto); /* Added to create 2 rows */
+    gap: 16px;
+    padding: 50px 100px;
+}
+
+.photo-gallery-stream {
+    padding: 100px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 0px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-grid img:hover {
+    filter: brightness(1.2);
+}
+
+.inline {
+    display: inline-block;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.social-links a:hover {
+    color: #00a1b0;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 600px) {
+    header {
+        padding: 20px 0;
+    }
+
+    /* Adjust other styles as needed for smaller screens */
+}
