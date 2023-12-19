@@ -2,17 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400,500;600;700&display=swap');
 
 body, h1, h2, p {
     margin: 0;
     padding: 0;
 }
 
+h1 {
+    font-size: 100px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
 h2 {
     font-size: 48px;
     font-family: 'Playfair Display', serif;
     font-weight: 400;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 }
 
 .didot {
@@ -38,15 +46,63 @@ body {
 
 /* Header styles */
 header {
-    background-color: #0e0e0e;
     color: #fff;
     text-align: center;
-    padding: 40px 0;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    height: 70px;
+    width: 100%;
+    font-family: 'Cormorant Garamond';
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease;
+}
+
+.navbar a {
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+.myname {
+    font-size: 36px;
+    letter-spacing: 10px;
+    margin-top: -10px;
+    padding-right: 200px;
+    font-weight: bolder;
 }
 
 .top-container {
-    margin: 0 auto;
-    height: 350px;
+    height: 650px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#homepage-container {
+    height: 750px;
+    background-image: url("images/karly.jpg");
+    background-position: center 25%;
+}
+
+#photography-container {
+    background-image: url("images/photo.png");
+    background-position: center 35%;
+}
+
+.bottom-text {
+    position: absolute;
+    left: 25%;
+    bottom: 0;
+    padding-bottom: 50px;
 }
 
 /* Section styles */
@@ -61,7 +117,8 @@ footer {
     color: #919191;
     height: 100px;
     font-family: 'Lato';
-    font-size: 18px;
+    font-size: 14px;
+    margin-top: 100px;
 }
 
 .title {
@@ -71,10 +128,12 @@ footer {
 
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Updated to create 3 columns */
-    grid-template-rows: repeat(2, auto); /* Added to create 2 rows */
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(2, auto); 
     gap: 16px;
-    padding: 50px 100px;
+    width: 1000px;
+    margin: auto;
+    padding-top: 90px;
 }
 
 .photo-gallery-stream {
@@ -86,12 +145,34 @@ a {
     color: inherit;
 }
 
-img {
+.image-grid img {
     width: 100%;
     height: auto;
     border-radius: 0px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+}
+
+.image-grid div {
+    height: 250px;
+    overflow: hidden;
+}
+
+.image-grid div div {
+    height: 210px;
+    overflow: hidden;
+}
+
+.image-grid div p {
+    font-family: Didot;
+    font-size: 18px;
+    font-style: italic;
+    text-align: center;
+    padding: 13px 13px;
+}
+
+#reposition {
+    background-position: center 25%;
 }
 
 .image-grid img:hover {
@@ -105,6 +186,7 @@ img {
 .social-links {
     display: flex;
     justify-content: center;
+    margin-top: 15px;
 }
 
 .social-links a {
