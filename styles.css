@@ -32,7 +32,7 @@ h2 {
 /* Apply a background color and text styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #fbfbfb;
     color: #333;
     line-height: 1.6;
 }
@@ -94,19 +94,26 @@ header {
 }
 
 #photography-container {
-    height: 650px;
-    background-image: url("images/photo.png");
-    background-position: center 35%;
+    height: 600px;
+    background-image: url("images/photo2.png");
+    background-position: center 30%;
 }
 
 #bookshelf-container {
-    height: 470px;
-    background-image: url("images/books.webp")
+    height: 550px;
+    background-image: url("images/books.jpg");
+    background-position: center 60%;
 }
 
 #art-container {
-    height: 600px;
-    background-image: url("images/art.webp")
+    height: 450px;
+    background-image: url("images/art.webp");
+}
+
+#blog-container {
+    height: 350px;
+    background-image: url("images/blog.jpg");
+    background-position: center 10%;
 }
 
 .bottom-text {
@@ -116,9 +123,20 @@ header {
     padding-bottom: 50px;
 }
 
-/* Section styles */
 section {
     margin: 40px 0;
+}
+
+.photo-gallery-stream {
+    width: 70%;
+    margin: auto;
+    padding-top: 80px;
+    overflow: hidden;
+    margin-bottom: 100px;
+}
+
+.photo-gallery-stream img {
+    margin-bottom: 25px;
 }
 
 .center-content {
@@ -130,8 +148,29 @@ section {
     font-size: 18px;
 }
 
-.center-content a{
+.center-content a {
     text-decoration: underline;
+}
+
+.left-margin {
+    margin-left: 10%;
+}
+
+.right-margin {
+    margin-right: 3%;
+}
+
+.right-margin-smaller {
+    margin-right: 1%;
+}
+
+.center {
+    padding-left: 20%;
+}
+
+.vertical-spacer {
+    height: 30px;
+    width: 100%;
 }
 
 #home-title {
@@ -144,6 +183,16 @@ section {
 
 .font36 {
     font-size: 36px;
+}
+
+.inline-container {
+    font-size: 20px;
+}
+
+.inline-container p {
+    margin: 0;
+    display: inline;
+    font-style: italic;
 }
 
 footer {
@@ -162,6 +211,10 @@ footer {
     text-align: center;
 }
 
+.spaced {
+    letter-spacing: 7px;
+}
+
 .image-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
@@ -170,10 +223,6 @@ footer {
     width: 1000px;
     margin: auto;
     padding-top: 60px;
-}
-
-.photo-gallery-stream {
-    padding: 100px;
 }
 
 a {
@@ -285,7 +334,7 @@ a:hover {
 }
 
 .inline {
-    display: inline-block;
+    display: inline;
 }
 
 .social-links {
