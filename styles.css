@@ -391,6 +391,10 @@ a:hover {
     display: inline;
 }
 
+#blog-content {
+    height: 600px;
+}
+
 .social-links {
     display: flex;
     justify-content: center;
