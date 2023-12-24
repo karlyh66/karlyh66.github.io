@@ -160,12 +160,20 @@ section {
     margin-left: 5%
 }
 
+.left-margin-bigger {
+    margin-left: 18%;
+}
+
 .right-margin {
     margin-right: 3%;
 }
 
 .right-margin-smaller {
     margin-right: 1%;
+}
+
+.right-margin-bigger {
+    margin-right: 10%;
 }
 
 .center {
