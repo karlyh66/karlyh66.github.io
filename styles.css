@@ -116,6 +116,12 @@ header {
     background-position: center 10%;
 }
 
+#museum-container {
+    height: 350px;
+    background-image: url("images/museum.jpg");
+    background-position: center 100%;
+}
+
 .bottom-text {
     position: absolute;
     left: 25%;
