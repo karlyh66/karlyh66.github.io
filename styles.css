@@ -145,6 +145,21 @@ section {
     margin-bottom: 25px;
 }
 
+/* I know this is inefficient but I don't want to go back and fix rn */
+
+.photo-gallery-stream-w-text {
+    width: 70%;
+    margin: auto;
+    padding-top: 80px;
+    overflow: hidden;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.photo-gallery-stream-w-text img {
+    margin-bottom: 25px;
+}
+
 .center-content {
     width: 60%;
     margin: auto;
