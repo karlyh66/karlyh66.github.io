@@ -371,6 +371,11 @@ a:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+#art-2024 {
+    background-image: url("art/2024/1.webp");
+    background-position: center 30%;
+}
+
 #art-2023 {
     background-image: url("images/art-2023.png");
     background-position: center 35%;
