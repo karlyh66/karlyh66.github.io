@@ -60,7 +60,7 @@ header {
     z-index: 1000;
     height: 70px;
     width: 100%;
-    font-family: 'Cormorant Garamond';
+    font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
     display: flex;
     justify-content: center;
