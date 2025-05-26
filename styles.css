@@ -243,6 +243,15 @@ section {
     margin-bottom: 0;
 }
 
+#writing-content h3 {
+    margin-bottom: -5px;
+}
+
+.video-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 .art-pages p {
     font-family: "Garamond";
     font-style: italic;
