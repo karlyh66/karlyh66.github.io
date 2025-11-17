@@ -475,7 +475,8 @@ a:hover {
 }
 
 #blog-content {
-    height: 600px;
+    font-size: 16px;
+    /* height: 1000px; */
 }
 
 .social-links {
@@ -493,6 +494,29 @@ a:hover {
 .social-links a:hover {
     color: #00a1b0;
 }
+
+.captioned-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0; 
+}
+
+.captioned-img img {
+    max-width: 60%;
+    height: auto;
+    display: block;
+}
+
+.caption {
+    max-width: 60%;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
 
 /* Responsive styles */
 @media only screen and (max-width: 600px) {

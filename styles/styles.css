@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+h1 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 3em;
+}
+
+#header {
+    text-align: center;
+    margin-top: 7%;
+    background-image: url("images/header.jpg");
+}
