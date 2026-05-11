@@ -10,8 +10,49 @@
         body {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1em;
-            background: url('home_bg.png') no-repeat center center fixed;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .home-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .home-bg-image,
+        .home-bg-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .home-bg-image {
+            background-position: center;
+            background-repeat: no-repeat;
             background-size: cover;
+        }
+
+        .home-bg-video {
+            opacity: 0;
+            transition: opacity 2s ease;
+        }
+
+        .home-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0);
+            pointer-events: none;
+            transition: background 0.3s ease;
+        }
+
+        .home-bg.is-tinted::after {
+            background: rgba(0, 0, 0, 0.28);
         }
 
         .fixed-links {
@@ -128,6 +169,7 @@
 </script>
 
 <body>
+    <div class="home-bg" id="homeBg" aria-hidden="true"></div>
     <div class="fixed-links">
         <a href="index.html" class="fixed-link link-name">karly</a>
         <a href="photography.html" class="fixed-link link-photo">photo</a>
@@ -140,6 +182,141 @@
         <a href="https://theharvardadvocate.com/content/ruminate" class="fixed-link link-hidden2">.</a>
         <a href="https://karlyh66.github.io/record-room/" class="fixed-link link-hidden4">.</a>
     </div>
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var backgrounds = [
+                { type: 'image', src: 'bg/1.png' },
+                { type: 'video', src: 'bg/2.MOV' },
+                { type: 'video', src: 'bg/3.MOV' },
+                { type: 'video', src: 'bg/4.mov' },
+                { type: 'video', src: 'bg/5.mov' },
+                { type: 'video', src: 'bg/6.mov' },
+                { type: 'video', src: 'bg/7.mov' },
+                { type: 'video', src: 'bg/8.MOV' },
+                { type: 'video', src: 'bg/9.MOV' },
+                { type: 'video', src: 'bg/10.MOV' },
+                { type: 'video', src: 'bg/11.mov' },
+                { type: 'video', src: 'bg/12.mov' },
+                { type: 'video', src: 'bg/13.mov' },
+                { type: 'image', src: 'bg/14.JPG' }
+            ];
+
+            var homeBg = document.getElementById('homeBg');
+            var selected = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+            var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var tintedBackgrounds = ['bg/2.MOV', 'bg/4.mov', 'bg/6.mov'];
+
+            if (tintedBackgrounds.indexOf(selected.src) !== -1) {
+                homeBg.classList.add('is-tinted');
+            }
+
+            function showImage(src) {
+                var image = document.createElement('div');
+                image.className = 'home-bg-image';
+                image.style.backgroundImage = "url('" + src + "')";
+                homeBg.appendChild(image);
+            }
+
+            function showVideo(src) {
+                if (src === 'bg/6.mov') {
+                    showOneShotVideo(src);
+                    return;
+                }
+
+                var videos = [document.createElement('video'), document.createElement('video')];
+                var current = 0;
+                var fadeSeconds = 2;
+                var isFading = false;
+                var fellBack = false;
+
+                function fallBackToImage() {
+                    if (fellBack) {
+                        return;
+                    }
+
+                    fellBack = true;
+                    homeBg.innerHTML = '';
+                    showImage('bg/1.png');
+                }
+
+                videos.forEach(function (video, index) {
+                    video.className = 'home-bg-video';
+                    video.src = src;
+                    video.muted = true;
+                    video.playsInline = true;
+                    video.preload = 'auto';
+                    video.setAttribute('muted', '');
+                    video.setAttribute('playsinline', '');
+                    video.style.opacity = index === 0 ? '1' : '0';
+                    video.addEventListener('error', fallBackToImage);
+                    homeBg.appendChild(video);
+                });
+
+                videos.forEach(function (video) {
+                    video.addEventListener('timeupdate', function () {
+                        var active = videos[current];
+                        var next = videos[1 - current];
+
+                        if (video !== active || isFading || !active.duration) {
+                            return;
+                        }
+
+                        if (active.duration - active.currentTime <= fadeSeconds) {
+                            isFading = true;
+                            next.currentTime = 0;
+                            next.play().catch(fallBackToImage);
+                            active.style.opacity = '0';
+                            next.style.opacity = '1';
+
+                            window.setTimeout(function () {
+                                active.pause();
+                                active.currentTime = 0;
+                                current = 1 - current;
+                                isFading = false;
+                            }, fadeSeconds * 1000);
+                        }
+                    });
+                });
+
+                videos[0].play().catch(fallBackToImage);
+            }
+
+            function showOneShotVideo(src) {
+                var video = document.createElement('video');
+                var fellBack = false;
+
+                function fallBackToImage() {
+                    if (fellBack) {
+                        return;
+                    }
+
+                    fellBack = true;
+                    homeBg.innerHTML = '';
+                    showImage('bg/1.png');
+                }
+
+                video.className = 'home-bg-video';
+                video.src = src;
+                video.muted = true;
+                video.playsInline = true;
+                video.preload = 'auto';
+                video.setAttribute('muted', '');
+                video.setAttribute('playsinline', '');
+                video.addEventListener('error', fallBackToImage);
+                video.addEventListener('canplay', function () {
+                    video.style.opacity = '1';
+                });
+                homeBg.appendChild(video);
+
+                video.play().catch(fallBackToImage);
+            }
+
+            if (selected.type === 'video' && !reduceMotion) {
+                showVideo(selected.src);
+            } else {
+                showImage(selected.type === 'image' ? selected.src : 'bg/1.png');
+            }
+        });
+    </script>
 </body>
 </html>
